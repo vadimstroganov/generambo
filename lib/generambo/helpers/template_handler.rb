@@ -18,8 +18,12 @@ module Generambo
             # remove .liquid extension
             file.slice! File.extname(file)
 
+            output_directory = File.dirname(file)
+            output_filename  = properties[MODULE_NAME_KEY] + File.basename(file)
+            output_path      = File.join(output_directory, output_filename)
+
             # write handled file
-            File.open(file, 'w+') { |f| f.write(output) }
+            File.open(output_path, 'w+') { |f| f.write(output) }
           end
         end
 
