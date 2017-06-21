@@ -19,7 +19,7 @@ module Generambo
 
         properties = YAML.load_file(GENERAMBO_FILE)
         properties[USERNAME_KEY] = Generambo::UserPreferences.obtain_username
-        properties[CURRENT_DATE_KEY] = Time.now.strftime('%d/%m/%Y')
+        properties[CURRENT_DATE_KEY] = Time.now.strftime('%d.%m.%Y')
         properties[MODULE_NAME_KEY] = module_name
 
         template_folder_path = File.join(Dir.pwd, 'Templates', template_folder)
